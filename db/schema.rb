@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_032929) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_033119) do
   create_table "games", force: :cascade do |t|
     t.integer "started_by_id", null: false
     t.string "state"
@@ -19,6 +19,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_032929) do
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_games_on_code"
     t.index ["started_by_id"], name: "index_games_on_started_by_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.integer "game_id", null: false
+    t.integer "user_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_players_on_game_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
   end
 
   create_table "remember_me_tokens", force: :cascade do |t|
@@ -36,5 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_032929) do
   end
 
   add_foreign_key "games", "started_bies"
+  add_foreign_key "players", "games"
+  add_foreign_key "players", "users"
   add_foreign_key "remember_me_tokens", "users"
 end

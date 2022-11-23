@@ -1,4 +1,7 @@
 <h1>Game <%= @id %></h1>
+<% if session[:player_name] %>
+  <h2>You: <%= session[:player_name] %></h2>
+<% end %>
 <ol>
   <li>If not started...
     <ul>

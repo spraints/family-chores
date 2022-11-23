@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -ex
+
+bundle config path vendor/gems
+bundle install --local || bundle

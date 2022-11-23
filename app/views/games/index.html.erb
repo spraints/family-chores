@@ -1,9 +1,12 @@
-<div>
-  <%= link_to "Start a game", new_game_path %>
-</div>
-<hr>
-<div>
-  Join a game
-  <input type="text">
-  <%= link_to "go", game_path("JXYGVM") %>
-</div>
+<main>
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-6 text-center text-lg-start">
+        <%= render "start" %>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-6">
+        <%= render "join" %>
+      </div>
+    </div>
+  </div>
+</main>

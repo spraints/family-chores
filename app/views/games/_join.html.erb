@@ -1,0 +1,12 @@
+<h1 class="display-4 fw-bold lh-1 mb-3">Join a game</h1>
+<%= form_with url: players_path, class: "p-4 p-md-5 border rounded-3 bg-light" do %>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" name="game_id" id="game-id" placeholder="ABCDEF">
+    <label for="game-id">Game ID</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="player_name" placeholder="you">
+    <label for="player_name">Your Name</label>
+  </div>
+  <button class="w-100 btn btn-lg btn-primary" type="submit">Join</button>
+<% end %>

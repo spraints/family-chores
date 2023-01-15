@@ -1,0 +1,8 @@
+<ol id="games-players-setup">
+  <%= render "player_setup" %>
+  <% @game.players.each do |player| %>
+    <% if @me != player %>
+      <%= render "other_player_setup", locals: {player: player} %>
+    <% end %>
+  <% end %>
+</ol>

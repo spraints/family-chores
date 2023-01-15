@@ -1,9 +1,12 @@
 class GamesController < ApplicationController
-  def new
-    redirect_to game_path("NEWGM1")
+  include CreateGame
+
+  def create
+    redirect_to(create_game(actor: current_actor))
   end
 
   def show
-    @id = params[:id]
+    @game = Game.find_by_code(params[:id])
+    @me = @game.find_player(current_actor)
   end
 end

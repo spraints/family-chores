@@ -1,20 +1,2 @@
-<h1>Game <%= @id %></h1>
-<% if session[:player_name] %>
-  <h2>You: <%= session[:player_name] %></h2>
-<% end %>
-<ol>
-  <li>If not started...
-    <ul>
-      <li>If owner: settings</li>
-      <li>If not owner: join and name myself</li>
-      <li>Player list</li>
-    </ul>
-  </li>
-  <li>If started...
-    <ul>
-      <li>(just the game id, plus a "reveal role" button)</li>
-      <li>viewing role: crewmate or imposter</li>
-      <li>viewing role: task list</li>
-    </ul>
-  </li>
-</ol>
+<h1>Game <%= @game %></h1>
+<%= render @game.state %>

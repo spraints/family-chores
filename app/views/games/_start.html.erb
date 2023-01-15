@@ -1,2 +1,4 @@
-<h1 class="display-4 fw-bold lh-1 mb-3">Start a game</h1>
-<p class="col-lg-10 fs-4">(todo - button to start a game)</p>
+<h1 class="display-4 fw-bold lh-1 mb-3">Start a new game</h1>
+<%= form_with url: games_path, class: "p-4 p-md-5 border rounded-3 bg-light" do %>
+  <button class="w-100 btn btn-lg btn-primary" type="submit">Start</button>
+<% end %>

@@ -2,8 +2,8 @@
 
 one:
   user: one
-  token: MyString
+  token: token1
 
 two:
   user: two
-  token: MyString
+  token: token2

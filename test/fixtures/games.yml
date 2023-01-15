@@ -3,9 +3,9 @@
 one:
   started_by: one
   state: MyString
-  code: MyString
+  code: GM1
 
 two:
   started_by: two
   state: MyString
-  code: MyString
+  code: GM2

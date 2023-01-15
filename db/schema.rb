@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_033119) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "games", "started_bies"
+  add_foreign_key "games", "users", column: "started_by_id"
   add_foreign_key "players", "games"
   add_foreign_key "players", "users"
   add_foreign_key "remember_me_tokens", "users"

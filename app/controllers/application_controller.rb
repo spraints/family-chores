@@ -1,14 +1,16 @@
 class ApplicationController < ActionController::Base
-  def current_user
-    @current_user ||= get_current_user
+  # The User or Visitor who is here.
+  # Never returns nil.
+  def current_user_or_visitor
+    @current_user_or_visitor ||= get_current_user_or_visitor
   end
 
   private
 
-  def get_current_user
+  def get_current_user_or_visitor
     get_current_user_from_session ||
       get_current_user_from_remember_me_token ||
-      create_current_user
+      get_visitor
   end
 
   def get_current_user_from_session
@@ -20,14 +22,10 @@ class ApplicationController < ActionController::Base
     token&.user
   end
 
-  def create_current_user
-    # todo - don't make a new user every time, just generate an id. when the
-    # user does something, then store the user. Or maybe just store the ID.
-    user = User.create!
-    token = user.remember_me_tokens.create!
-    # clear the session?
-    session[:current_user_id] = user.id
-    cookies.permanent.signed[:remember_me] = token.token
-    user
+  def get_visitor_from_session
+    visitor = Visitor.new(id: session[:visitor_id].to_s.presence)
+    session[:visitor_id] = visitor.id
+    # todo: Also a remember me token?
+    visitor
   end
 end

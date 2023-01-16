@@ -1,1 +1,10 @@
-<li>todo: set myself up (choose name, leave, mark myself ready)</li>
+<li id="player-setup-me">
+  <input type="text" value="<%= @me.name %>" placeholder="name" data-games-target="my-player-name" data-action="blur->games#set_my_player_name">
+  <div class="btn-group" role="group">
+    <input type="radio" name="is-ready" value="yes" class="btn-check" id="me-ready" autocomplete="off" <% if @me.ready? %>checked<% end %> data-action="click->games#ready">
+    <label class="btn btn-outline-success" for="me-ready">Ready</label>
+
+    <input type="radio" name="is-ready" value="no" class="btn-check" id="me-not-ready" autocomplete="off" <% if !@me.ready? %>checked<% end %> data-action="click->games#not_ready">
+    <label class="btn btn-outline-secondary" for="me-not-ready">Not Ready</label>
+  </div>
+</li>

@@ -1,1 +1,4 @@
-<li>todo: show other player state</li>
+<li id="player-setup-<%= player.id %>">
+  <b><%= player %></b>
+  <% if player.ready? %>ready<% else %>not ready<% end %>
+</li>

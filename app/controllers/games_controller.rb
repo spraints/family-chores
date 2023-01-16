@@ -7,6 +7,6 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find_by_code(params[:id])
-    @me = @game.find_player(current_actor)
+    @me = @game.find_player(current_actor) || Player.new
   end
 end
